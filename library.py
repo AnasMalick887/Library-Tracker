@@ -20,6 +20,21 @@ def add_book():
     books[title] = {"author": author, "available": True}
     print(f'Added "{title}".')
     
+def list_books():
+    if not books:
+        print("No books in the library.")
+        return
+
+    print("\n=== All Books ===")
+
+    for title, details in books.items():
+        status = "Available" if details["available"] else "Borrowed"
+
+        print(f"Title: {title}")
+        print(f"Author: {details['author']}")
+        print(f"Status: {status}")
+        print("--------------------")
+        
 def main():
     while True:
         show_menu()
